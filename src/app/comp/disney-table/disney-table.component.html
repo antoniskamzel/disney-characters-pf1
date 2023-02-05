@@ -1,0 +1,56 @@
+<div *ngIf="disneyData" class="top-bar">
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  <div class="total-items">
+    <span>(Total Items: {{disneyData.length}})</span>
+  </div>
+  <div class="items-per-page">
+    <span class="set-page-number" id="10" (click)="setPageNumber(10, $event)">10</span>
+    <span class="set-page-number" id="20" (click)="setPageNumber(20, $event)">20</span>
+    <span class="set-page-number active" id="50" (click)="setPageNumber(50, $event)">50</span>
+    <span class="set-page-number" id="100" (click)="setPageNumber(100, $event)">100</span>
+    <span class="set-page-number" id="200" (click)="setPageNumber(200, $event)">200</span>
+    <span class="set-page-number" id="500" (click)="setPageNumber(500, $event)">500</span>
+  </div>
+</div>
+
+<div *ngIf="disneyData" class="actual-table">
+  <div class="actual-table-inner">
+    <div class="act-2-in">
+      <div class="table-row table-top">
+        <span>NAME <fa-icon (click)="sort()" icon="sort"></fa-icon></span>
+        <span small>TV SHOWS</span>
+        <span small>VIDEO GAMES</span>
+        <span>ALLIES</span>
+        <span>ENEMIES</span>
+      </div>
+      <div (click)="showDetails(i)" class="table-row table-data" *ngFor="let i of disneyData | paginate: {itemsPerPage: itemsPerPageInput, currentPage: currentPage}">
+        <span>{{i.name}}</span>
+        <span small>{{i.tvShows.length}}</span>
+        <span small>{{i.videoGames.length}}</span>
+        <span *ngIf="i.allies.length===0">This character has no allies</span>
+        <span *ngIf="i.allies.length>0">{{i.allies}}</span>
+        <span *ngIf="i.enemies.length===0">This character has no enemies</span>
+        <span *ngIf="i.enemies.length>0">{{i.enemies}}</span>
+      </div>
+      <div class="table-row no-result" *ngIf="disneyData.length === 0">NO RESULT</div>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="disneyData" class="table-basic-cont">
+  <div class="actual-table">
+    <div class="table-row table-top">
+      <span>NAME</span>
+      <span>TV SHOWS</span>
+      <span>VIDEO GAMES</span>
+      <span>ALIIES</span>
+      <span>ENEMIES</span>
+    </div>
+    <div class="table-row table-data" *ngFor="let i of disneyData | paginate: {itemsPerPage: 50, currentPage: currentPage}">
+      <span>{{i.name}}</span>
+      <span>{{i.name}}</span>
+      <span>{{i.name}}</span>
+      <span>{{i.name}}</span>
+      <span>{{i.name}}</span>
+    </div>
+  </div>
+</div> -->

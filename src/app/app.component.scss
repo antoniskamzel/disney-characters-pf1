@@ -1,0 +1,151 @@
+//SPINNER
+.loading{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  #loading-data{
+    font-size: 18px;
+    color: var(--color-light-1);
+    letter-spacing: 2px;
+  }
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--color-light-1) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+//END OF SPINNER
+
+
+.main-container{
+  padding: 10px;
+  position: relative;
+  overflow: auto;
+  height: 100%;
+}
+
+.disney-back{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -100;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  transform: scale(1.2);
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.title{
+  text-align: center;
+  color: var(--color-light-1);
+  margin: 3vh 0;
+  h1{
+    letter-spacing: 2px;
+    font-size: clamp(27px, 3vw, 37px);
+    margin: 5px 0;
+  }
+  h2{
+    font-size: 13px;
+    opacity: 0.2;
+  }
+}
+
+.actual-content{
+  overflow: auto;
+}
+
+.search-input-cont{
+  color: var(--color-light-1);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  margin: 15px auto;
+  width: 90%;
+  max-width: 280px;
+  h2{
+    margin: 0;
+    letter-spacing: 1px;
+    font-size: 17px;
+  }
+
+  .input-c{
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    border-radius: var(--border-radius-1);
+    padding: 5px 10px;
+    width: 100%;
+    background-color: var(--color-light-3);
+    color: var(--color-light-1);
+  }
+  input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    flex: 1 1 auto;
+    color: var(--color-light-1);
+
+  }
+  input::placeholder{
+    color: var(--color-light-1);
+    opacity: 0.7;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+}
+.table-cont{
+  max-width: 1200px;
+  margin: 4vh auto;
+}
+
+.chart-cont{
+  max-width: 1200px;
+  margin: 2vh auto;
+  background: var(--color-light-3);
+  border-radius: var(--border-radius-2);
+
+}
+
+
+
+

@@ -1,0 +1,131 @@
+
+.chart-main{
+  position: relative;
+}
+
+.chart-main::before{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -20;
+  content: '';
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+}
+
+.chart-title{
+  padding: 15px 0;
+  display: grid;
+  place-items: center;
+  span{
+    text-align: center;
+    color: var(--color-light-1);
+  }
+}
+
+#details-chart{
+  position: fixed;
+  border-radius: var(--border-radius-2);
+  width: 300px;
+  background: var(--color-light-1);
+  box-shadow: 0 2px 15px rgb(0,0,0,10%);
+  overflow: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+
+  h1{
+    height: 25px;
+    opacity: 0.5;
+    margin: 0;
+    font-size: 10px;
+    text-align: center;
+  }
+  div{
+    color: var(--theme-1);
+    text-align: center;
+  }
+  div:nth-child(2){
+    padding: 3px;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  div:nth-child(3){
+    padding: 3px;
+    border-bottom: 1px solid var(--theme-2);
+    margin-bottom: 10px;
+    font-size: 15px;
+    opacity: 0.7;
+  }
+
+  div:nth-child(4){
+    margin: 11px 5px;
+    display: grid;
+    place-items: center;
+    span{
+      padding: 5px 0;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      min-height: 50;
+      position: relative;
+    }
+    span::before{
+      position: absolute;
+      bottom: 0;
+      margin: auto;
+      width: 90%;
+      content: '';
+      height: 2px;
+      background-color: var(--theme-2);
+      opacity: 0.1;
+    }
+    span:nth-child(2n-1){
+      background: rgba(255, 255, 255, 0.267);
+    }
+  }
+}
+
+div[is-active="false"], div[is-clicked="false"]{
+  display: none;
+  height: 0
+}
+
+div[is-active="true"], div[is-clicked="true"]{
+  display: block;
+  height: 350px;
+}
+
+.excel-button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--color-light-3);
+  color: var(--color-light-1);
+  border-radius: var(--border-radius-2);
+  border: none;
+  padding: 5px 10px;
+  letter-spacing: 3px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.excel-button:hover{
+  background: var(--color-light-hover-2);
+}
+
+@media(max-width: 550px){
+  .excel-button{
+    top: auto;
+    bottom: 10px;
+  }
+}
+
+
+#excel-table{
+  display: none;
+}

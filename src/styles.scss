@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+body,html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #02043C;
+  border-radius: 4px;
+}
+
+@font-face {
+  font-family: font1;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+*{
+  box-sizing: border-box;
+  font-family: font1!important;
+  --color-light-1: white;
+  --color-light-2: rgb(212, 212, 212);
+  --color-light-3: rgba(212, 212, 212, 0.404);
+  --color-light-hover-1: rgba(212, 212, 212, 0.329);
+  --color-light-hover-2: rgba(236, 236, 236, 0.527);
+  --border-radius-1: 5px;
+  --border-radius-2: 10px;
+  --border-radius-3: 20px;
+  --theme-1: #02043C;
+  --theme-2: #D760C6;
+  --theme-3: #395BC6;
+
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+
+:root{
+
+  .ngx-pagination{
+    padding: 0;
+  }
+  .ngx-pagination .current{
+    background: var(--theme-2);
+    border-radius: var(--border-radius-2);
+  }
+  .ngx-pagination a:hover{
+    border-radius: var(--border-radius-2);
+    background: var(--theme-3);
+  }
+
+}

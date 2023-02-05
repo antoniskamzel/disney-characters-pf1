@@ -1,0 +1,23 @@
+<div class="modal-main" id="modal-main">
+  <div class="info-cont" will-hide="true" id="info-cont">
+    <div class="bck"><img src="../../../assets/diney2.jpg" alt="noImage"></div>
+    <div (click)="closeModalFun()" class="close-btn">
+      <fa-icon icon="xmark"></fa-icon>
+    </div>
+
+    <div class="modal-info">
+      <div class="modal-name">{{details.name}}</div>
+      <div class="modal-picture"><img src="{{details.imageUrl}}" alt=""></div>
+      <div class="modal-lists">
+        <div class="modal-lists-inner">
+          <div><app-item-list [title]="'TV Shows'" [list]="details.tvShows"></app-item-list></div>
+          <div><app-item-list [title]="'Video Games'" [list]="details.videoGames"></app-item-list></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-dead-space">
+
+  </div>
+</div>

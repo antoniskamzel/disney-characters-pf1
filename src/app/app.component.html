@@ -1,0 +1,35 @@
+
+<div class="main-container">
+  <div class="disney-back">
+    <img src="../assets/disney.jpg" alt="">
+  </div>
+  <div class="title">
+    <h1>DISNEY CHARACTERS</h1>
+    <h2>Assignment by Antonis Kamzelas</h2>
+  </div>
+
+  <div class="loading" *ngIf="isDownloadingData$ | async">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <div id="loading-data">Loading Data</div>
+  </div>
+
+  <div class="search-input-cont">
+    <h2>Search characters</h2>
+    <div class="input-c">
+      <fa-icon icon="magnifying-glass"></fa-icon>
+      <input placeholder="Input Name or TV show" type="text" [(ngModel)]="searchTxt" (ngModelChange)="triggerSearch()">
+    </div>
+  </div>
+
+  <div class="table-cont">
+    <app-disney-table *ngIf="dataToShow$" [disneyData]="dataToShow$ | async" (showDetailsTrigger)="showModalFunction($event)"></app-disney-table>
+  </div>
+  <div class="chart-cont">
+    <app-chart *ngIf="dataToShow$" [disneyData]="dataToShow$ | async"></app-chart>
+  </div>
+
+</div>
+
+<app-modal *ngIf="showModal" [details]="detailsForModal" (closeModal)="closeModalFunction()"></app-modal>
+
+<router-outlet></router-outlet>

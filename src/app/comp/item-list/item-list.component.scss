@@ -1,0 +1,39 @@
+
+.item-list-main{
+  display: flex;
+  flex-direction: column;
+}
+
+.list-title{
+  height: 35px;
+  display: grid;
+  place-items: center;
+  color: var(--color-light-1);
+  font-size: 25px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+ul{
+  flex: 1 1 auto;
+  list-style-type: none;
+  padding-left: 2px;
+  li{
+    display: grid;
+    place-items: center;
+    color: var(--color-light-1);
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+  }
+  li::before{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    width: 90%;
+    height: 2px;
+    margin: auto;
+    background: var(--color-light-3);
+
+  }
+}

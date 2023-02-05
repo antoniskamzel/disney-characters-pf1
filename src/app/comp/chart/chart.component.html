@@ -1,0 +1,37 @@
+<div class="chart-main" id="chart-main">
+  <button (click)="exportExcel()" class="excel-button">XLSX</button>
+  <div class="chart-title">
+    <span>Number of films for every character</span>
+  </div>
+  <highcharts-chart
+    [Highcharts]="hch"
+    [options]="piechart"
+    style=" width: 100%; height: 550px; display: block;"
+  >
+  </highcharts-chart>
+
+  <div id="details-chart" class="details-chart" is-active="false" is-clicked="false">
+    <h1>(click and hover on the card)</h1>
+    <div>{{detailsCard.name}}</div>
+    <div *ngIf="detailsCard.listOfFilms.length===1">{{detailsCard.listOfFilms.length}} film - {{detailsCard.percentage}} %</div>
+    <div *ngIf="detailsCard.listOfFilms.length>1">{{detailsCard.listOfFilms.length}} films - {{detailsCard.percentage}} %</div>
+    <div>
+      <span *ngFor="let i of detailsCard.listOfFilms">
+        {{i}}
+      </span>
+    </div>
+  </div>
+</div>
+
+<table class="excel-table" id="excel-table">
+  <tr>
+     <th>Name</th>
+     <th># of films</th>
+     <th>Film list</th>
+  </tr>
+  <tr *ngFor="let sup of chartDataFormatted">
+     <td>{{ sup.name }}</td>
+     <td>{{ sup.y }}</td>
+     <td><span *ngFor="let i of sup.listOfFilms">[{{i}}],</span></td>
+  </tr>
+</table>

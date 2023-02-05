@@ -1,0 +1,15 @@
+<div class="item-list-main">
+  <div class="list-title">{{title}}</div>
+  <ul>
+    <div *ngIf="list.length>0">
+      <li *ngFor="let i of list">
+        <span>{{i}}</span>
+      </li>
+    </div>
+    <div *ngIf="list.length === 0">
+      <li>
+        <span>No {{title}}</span>
+      </li>
+    </div>
+  </ul>
+</div>
